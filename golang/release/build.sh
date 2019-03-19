@@ -10,4 +10,15 @@ rmdir $PROJECT_ROOT
 ln -s $GITHUB_WORKSPACE $PROJECT_ROOT
 cd $PROJECT_ROOT
 go get -v ./...
-go build -o $PROJECT_NAME cmd/main.go
+
+CGO_ENABLED=0 GOOS=linux \
+  go build \
+  -a \
+  -ldflags "-X main.CI_COMMIT_TAG=$CI_COMMIT_TAG" \
+  -installsuffix cgo -o $PROJECT_NAME ./cmd/main.go
+
+GOARCH=amd64 GOOS=windows \
+  go build \
+  -a \
+  -ldflags "-X main.CI_COMMIT_TAG=$CI_COMMIT_TAG" \
+  -installsuffix cgo -o $PROJECT_NAME.exe ./cmd/main.go
