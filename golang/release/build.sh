@@ -4,6 +4,7 @@ set -eux
 
 PROJECT_ROOT="/go/src/github.com/${GITHUB_REPOSITORY}"
 PROJECT_NAME=$(basename $GITHUB_REPOSITORY)
+CI_COMMIT_TAG=""
 
 mkdir -p $PROJECT_ROOT
 rmdir $PROJECT_ROOT
