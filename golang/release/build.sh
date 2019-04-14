@@ -16,10 +16,10 @@ CGO_ENABLED=0 GOOS=linux \
   go build \
   -a \
   -ldflags "-X main.CI_COMMIT_TAG=$CI_COMMIT_TAG" \
-  -installsuffix cgo -o $PROJECT_NAME ./cmd/main.go
+  -installsuffix cgo -o $PROJECT_NAME $CMD_PATH
 
 GOARCH=amd64 GOOS=windows \
   go build \
   -a \
   -ldflags "-X main.CI_COMMIT_TAG=$CI_COMMIT_TAG" \
-  -installsuffix cgo -o $PROJECT_NAME.exe ./cmd/main.go
+  -installsuffix cgo -o $PROJECT_NAME.exe $CMD_PATH
