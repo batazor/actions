@@ -1,4 +1,4 @@
-FROM golang:1.13
+FROM golang:1.19
 
 LABEL "com.github.actions.name"="golint"
 LABEL "com.github.actions.description"="Run golint"
