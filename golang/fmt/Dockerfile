@@ -1,4 +1,4 @@
-FROM golang:1.20
+FROM golang:1.21
 
 LABEL "com.github.actions.name"="go fmt"
 LABEL "com.github.actions.description"="Run go fmt"
